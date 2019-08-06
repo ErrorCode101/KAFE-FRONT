@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Enter Details</h1>
+<div mat-dialog-content>
+  <p>ID : </p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.itemId" (ngModelChange)="idChanged($event)">
+  </mat-form-field>
+  <p>name : </p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.name" (ngModelChange)="nameChanged($event)">
+  </mat-form-field>
+  <p>description : </p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.description" (ngModelChange)="descriptionChanged($event)">
+  </mat-form-field>
+  <p>Ready In Minutes : </p>
+  <mat-form-field>
+    <input type="number" [(ngModel)]="data.readyInMinutes" (ngModelChange)="readyInMinsChanged($event)">
+  </mat-form-field>
+  <p>Price : </p>
+  <mat-form-field>
+    <input type="number" [(ngModel)]="data.price" (ngModelChange)="priceChanged($event)">
+  </mat-form-field>
+  <p>Image : </p>
+  <mat-form-field>
+    <input type="file" (change)="fileChanged($event)" [(ngModel)]="data.imageUrl">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" (click)="onSubmit()" cdkFocusInitial>Ok</button>
+</div>
