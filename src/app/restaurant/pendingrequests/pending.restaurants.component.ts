@@ -16,7 +16,8 @@ export class PendingRestaurantComponent implements OnInit{
     hide:boolean = true;
     isLoading:boolean = false;
     gridData: PendingRestaurantsModel[] = [];
-    displayedColumns: string[] = ["RestaurantId","RestaurantName","RestaurantAddress","RestaurantUser"];
+    displayedColumns: string[] = ["RestaurantId","RestaurantName","RestaurantAddress","RestaurantUser",
+    "ButtonOne", "ButtonTwo"];
 
     ngOnInit(): void {
         //throw new Error("Method not implemented.");

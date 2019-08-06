@@ -17,6 +17,7 @@ import {
 } from '@angular/material';
 import { CreateRestaurantComponent } from './restaurant/resgister/create.restaurant.component';
 import { PendingRestaurantComponent } from './restaurant/pendingrequests/pending.restaurants.component';
+import { AddUserComponent } from './restaurant/user/adduser/adduser.component';
 
 const routes: Routes =[
   {
@@ -35,6 +36,10 @@ const routes: Routes =[
   {
     path: 'restaurants/pending',
     component:PendingRestaurantComponent
+  },
+  {
+    path: 'user/register',
+    component: AddUserComponent
   }
 ];
 

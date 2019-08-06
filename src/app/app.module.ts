@@ -26,6 +26,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateRestaurantComponent } from './restaurant/resgister/create.restaurant.component';
 import { PendingRestaurantComponent } from './restaurant/pendingrequests/pending.restaurants.component';
+import { AddUserComponent } from './restaurant/user/adduser/adduser.component';
 
 @NgModule({
   imports: [
@@ -59,8 +60,8 @@ import { PendingRestaurantComponent } from './restaurant/pendingrequests/pending
     LoginComponent,
     DialogOverviewExampleDialog,
     CreateRestaurantComponent,
-    PendingRestaurantComponent
-
+    PendingRestaurantComponent,
+    AddUserComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
