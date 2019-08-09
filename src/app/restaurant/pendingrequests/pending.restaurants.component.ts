@@ -23,12 +23,54 @@ export class PendingRestaurantComponent implements OnInit{
 
     ngOnInit(): void {
         //throw new Error("Method not implemented.");
-        this.gridData.push({RestaurantId: "1", RestaurantName: "Test", RestaurantAddress: "", RestaurantUser: ""})
+        this.getPendingRequests();
+        this.gridData.push({restaurantId: "1", restaurantName: "Test", 
+        addressLine1: "TEST", addressLine2: "TEST", contactNumber: "TEST", city: "TEST", isdeleted : false, restaurantStatus: ""})
     }
 
 
 
     constructor(private httpService:HttpService,private commonService: CommonService){
         
+    }
+
+    private getPendingRequests(): void{
+        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/allrestaurant/toBeApproved";
+
+        this.httpService.getData(url).then((res: PendingRestaurantsModel[]) => {
+            if(res != null){
+                this.gridData = res;
+            }
+
+        }).catch(err => {
+            console.error(err);
+        })
+    }
+
+    onAccept(data: PendingRestaurantsModel): void{
+        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/update";
+
+        data.restaurantStatus = "ACTIVE";
+        this.httpService.postData(url, data).then((res: PendingRestaurantsModel) => {
+            if(res != null){
+                console.log(res);
+            }
+
+        }).catch(err => {
+            console.error(err);
+        })
+    }
+
+    onReject(data: PendingRestaurantsModel): void{
+        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/delete/" + data.restaurantId;
+
+        this.httpService.getData(url).then((res: PendingRestaurantsModel) => {
+            if(res != null){
+                console.log(res);
+            }
+
+        }).catch(err => {
+            console.error(err);
+        })
     }
 }

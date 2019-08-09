@@ -13,10 +13,8 @@
                 </mat-progress-spinner>
             </div>            
             <mat-card class="full-height">
-                <mat-card-header class="header-title">
-                    <mat-card-title class="header-title">Register Restaurant</mat-card-title>
+                    <h3>New Restaurant Requests</h3>
                     <mat-card-subtitle>Create New Restaurant</mat-card-subtitle>
-                </mat-card-header>
                 <mat-card-content>
                     <form autocomplete="off" name="form" #f="ngForm" novalidate>
                         <mat-form-field class="full-width">
@@ -26,7 +24,7 @@
                               
                         <mat-form-field class="full-width">
                             <input matInput name="address1" #address1="ngModel"placeholder="Address 1" [(ngModel)]="restuarantModel.addressLine1" required>
-                            <mat-error *ngIf="f.submitted && address.errors?.required">Restaurant address is required...</mat-error>
+                            <mat-error *ngIf="f.submitted && address1.errors?.required">Restaurant address is required...</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
