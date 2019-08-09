@@ -36,7 +36,7 @@
 
 .full-width{
   width: 100%;
-  padding: 8px;
+  padding: 2px;
 }
 
 .food-background{
@@ -45,7 +45,7 @@
 }
 
 mat-form-field.mat-form-field {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .button-submit{
@@ -53,7 +53,7 @@ mat-form-field.mat-form-field {
 }
 
 .header-title{
-  background-color: blue;
+  color: blue;
 }
 
 

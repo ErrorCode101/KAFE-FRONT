@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PendingRestaurantsModel } from "app/models/restaurant/pending/pending.restaurants.model";
+import { HttpService } from "app/services/https.service";
+import { CommonService } from "app/services/common.service";
 
 @Component({
     templateUrl: 'pending.restaurants.component.html',
@@ -21,9 +23,12 @@ export class PendingRestaurantComponent implements OnInit{
 
     ngOnInit(): void {
         //throw new Error("Method not implemented.");
+        this.gridData.push({RestaurantId: "1", RestaurantName: "Test", RestaurantAddress: "", RestaurantUser: ""})
     }
 
-    constructor(){
-        this.gridData.push(new PendingRestaurantsModel(),{RestaurantId: "1", RestaurantName: "Test", RestaurantAddress: "", RestaurantUser: ""})
+
+
+    constructor(private httpService:HttpService,private commonService: CommonService){
+        
     }
 }

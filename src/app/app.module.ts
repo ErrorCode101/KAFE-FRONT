@@ -22,11 +22,14 @@ import {
   MatInputModule,
   MatRippleModule
 } from '@angular/material';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateRestaurantComponent } from './restaurant/resgister/create.restaurant.component';
 import { PendingRestaurantComponent } from './restaurant/pendingrequests/pending.restaurants.component';
 import { AddUserComponent } from './restaurant/user/adduser/adduser.component';
+import { HttpService } from './services/https.service';
+import { CommonService } from './services/common.service';
 
 @NgModule({
   imports: [
@@ -48,6 +51,7 @@ import { AddUserComponent } from './restaurant/user/adduser/adduser.component';
     MatInputModule,
     MatRippleModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     HttpClientModule,
     FlexLayoutModule,
     AgmCoreModule.forRoot({
@@ -63,7 +67,7 @@ import { AddUserComponent } from './restaurant/user/adduser/adduser.component';
     PendingRestaurantComponent,
     AddUserComponent
   ],
-  providers: [],
+  providers: [HttpService, CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,12 +24,12 @@
 
         <ng-container matColumnDef="ButtonOne">
             <th mat-header-cell *matHeaderCellDef > </th>
-            <td mat-cell *matCellDef="let element"> <button> A</button> </td>
+            <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary">Accept</button> </td>
         </ng-container>
 
         <ng-container matColumnDef="ButtonTwo">
             <th mat-header-cell *matHeaderCellDef > </th>
-            <td mat-cell *matCellDef="let element"> <button>A </button>  </td>
+            <td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn">Reject</button>  </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
