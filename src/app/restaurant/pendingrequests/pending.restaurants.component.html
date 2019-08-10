@@ -1,42 +1,46 @@
-<div class="content">
-    <!-- <h3>New Restaurant Requests</h3> -->
-    <table mat-table [dataSource]="gridData">
+<!-- <h3>New Restaurant Requests</h3> -->
+<table mat-table [dataSource]="gridData" >
 
-        <ng-container matColumnDef="RestaurantId">
-            <th mat-header-cell *matHeaderCellDef> Restaurant Id </th>
-            <td mat-cell *matCellDef="let element"> {{element.restaurantId}} </td>
-        </ng-container>
-                
-        <ng-container matColumnDef="RestaurantName">
-            <th mat-header-cell *matHeaderCellDef> Restaurant Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.restaurantName}} </td>
-        </ng-container>
-                
-        <ng-container matColumnDef="RestaurantAddress">
-            <th mat-header-cell *matHeaderCellDef> Restaurant Address </th>
-            <td mat-cell *matCellDef="let element"> 
-                {{element.addressLine1}} <br> 
-                {{element.addressLine1}} <br>
-                {{element.city}}        
-            </td>
-        </ng-container>
-                
-        <ng-container matColumnDef="RestaurantUser">
-            <th mat-header-cell *matHeaderCellDef> Contact Number </th>
-            <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
-        </ng-container>
+    <ng-container matColumnDef="RestaurantId">
+        <th class="table-header" mat-header-cell *matHeaderCellDef> Restaurant Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.restaurantId}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="ButtonOne">
-            <th mat-header-cell *matHeaderCellDef > </th>
-            <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="onAccept(element)">Accept</button> </td>
-        </ng-container>
+    <ng-container matColumnDef="RestaurantName">
+        <th class="table-header" mat-header-cell *matHeaderCellDef> Restaurant Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.restaurantName}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="ButtonTwo">
-            <th mat-header-cell *matHeaderCellDef > </th>
-            <td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" (click)="onReject(element)">Reject</button>  </td>
-        </ng-container>
+    <ng-container matColumnDef="RestaurantAddress">
+        <th class="table-header" mat-header-cell *matHeaderCellDef> Restaurant Address </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.addressLine1}} <br>
+            {{element.addressLine1}} <br>
+            {{element.city}}
+        </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>          
-    </table>
+    <ng-container matColumnDef="RestaurantUser">
+        <th class="table-header" mat-header-cell *matHeaderCellDef> Contact Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ButtonOne">
+        <th class="table-header" mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+                (click)="onAccept(element)">Accept</button> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ButtonTwo">
+        <th class="table-header" mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn"
+                (click)="onReject(element)">Reject</button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+</table>
+<div class="loading-overlay-home" *ngIf="isLoading">
+    <mat-progress-spinner class="loader" [color]="'primary'" [mode]="'indeterminate'">
+    </mat-progress-spinner>
 </div>

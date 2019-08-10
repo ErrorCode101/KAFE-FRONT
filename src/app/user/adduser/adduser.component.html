@@ -1,46 +1,62 @@
-<div class="content">
-    <form autocomplete="off" name="form" #f="ngForm" novalidate>
+<div class="row" style="width:99%">
+    <div class="col-md-8">
+        <form autocomplete="off" name="form" #f="ngForm" novalidate>
 
-        <mat-form-field>
-            <input matInput name="first_name" #first_name="ngModel" [(ngModel)]="userModel.firstName"
-                placeholder="First Name" required>
-            <mat-error *ngIf="f.submitted && first_name.errors?.required">First name is required...</mat-error>
-        </mat-form-field>
+            <mat-form-field>
+                <input matInput name="first_name" #first_name="ngModel" [(ngModel)]="userModel.firstName"
+                    placeholder="First Name" required>
+                <mat-error *ngIf="f.submitted && first_name.errors?.required">First name is required...</mat-error>
+            </mat-form-field>
 
-        <mat-form-field>
-            <input matInput name="last_name" #last_name="ngModel" [(ngModel)]="userModel.lastName"
-                placeholder="Last Name" required>
-            <mat-error *ngIf="f.submitted && last_name.errors?.required">Last name is required...</mat-error>
-        </mat-form-field>
+            <mat-form-field>
+                <input matInput name="last_name" #last_name="ngModel" [(ngModel)]="userModel.lastName"
+                    placeholder="Last Name" required>
+                <mat-error *ngIf="f.submitted && last_name.errors?.required">Last name is required...</mat-error>
+            </mat-form-field>
 
 
-        <mat-form-field>
-            <input name="e_mail" type="email" #e_mail="ngModel" matInput placeholder="E-Mail"
-                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" [(ngModel)]="userModel.username" required>
-            <mat-error *ngIf="f.submitted && e_mail.errors?.required">Email is required...</mat-error>
-            <mat-error *ngIf="!e_mail.errors?.required && e_mail.errors?.pattern">Not a valid E-Mail...</mat-error>
-        </mat-form-field>
+            <mat-form-field>
+                <input name="e_mail" type="email" #e_mail="ngModel" matInput placeholder="E-Mail"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" [(ngModel)]="userModel.username"
+                    required>
+                <mat-error *ngIf="f.submitted && e_mail.errors?.required">Email is required...</mat-error>
+                <mat-error *ngIf="!e_mail.errors?.required && e_mail.errors?.pattern">Not a valid E-Mail...
+                </mat-error>
+            </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="userModel.password"
-                pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{1,100}" minlength="5"
-                [type]="hide ? 'password' : 'text'" required>
-            <button mat-icon-button matSuffix (click)="hide = !hide" type="button" [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="f.submitted && password.errors?.required">Password is required...</mat-error>
-            <mat-error *ngIf="password.errors?.minlength">Password must have at least 5 characters...</mat-error>
-            <mat-error *ngIf="!password.errors?.minlength && password.errors?.pattern">Password must contain at least 1
-                Upper case letter, 1 Lower case letter and a number...</mat-error>
-        </mat-form-field>
-        <mat-card-actions>
-            <button  type="submit" (click)="onSubmitButtonClick()" mat-button>Add
-                User</button>
-        </mat-card-actions>
-    </form>
-    <div class="loading-overlay" *ngIf="isLoading">
-        <mat-progress-spinner class="loader" [color]="'primary'" [mode]="'indeterminate'">
-        </mat-progress-spinner>
+            <mat-form-field>
+                <input matInput placeholder="Password" name="password" #password="ngModel"
+                    [(ngModel)]="userModel.password" pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{1,100}"
+                    minlength="5" [type]="hide ? 'password' : 'text'" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" type="button"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="f.submitted && password.errors?.required">Password is required...</mat-error>
+                <mat-error *ngIf="password.errors?.minlength">Password must have at least 5 characters...
+                </mat-error>
+                <mat-error *ngIf="!password.errors?.minlength && password.errors?.pattern">Password must contain at
+                    least 1
+                    Upper case letter, 1 Lower case letter and a number...</mat-error>
+            </mat-form-field>
+            <div class="row" style="width:99%;">
+                <div class="col-md-9">
+                    <button class="button-submit" style="background-color: #90A4AE !important" type="reset"
+                        mat-button>Clear
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <span style="float: right"></span>
+                    <button class="button-submit" style="background-color: #FFA000 !important" type="submit"
+                        (click)="onSubmitButtonClick()" mat-button>Add
+                        User</button>
+                </div>
+
+            </div>
+        </form>
+        <div class="loading-overlay-home" *ngIf="isLoading">
+            <mat-progress-spinner class="loader" [color]="'primary'" [mode]="'indeterminate'">
+            </mat-progress-spinner>
+        </div>
     </div>
 </div>

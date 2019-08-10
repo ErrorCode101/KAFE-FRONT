@@ -104,25 +104,25 @@
                                 contain at least 1 Upper case letter, 1 Lower case letter and a number...
                             </mat-error>
                         </mat-form-field>
-                        <mat-card-actions style="margin: 0">
-                            <div class="row pull-right">
-                                <div class="col-md-12">
-                                    <button class="button-submit" type="submit" (click)="onSubmitButtonClick()"
-                                        mat-button>Apply</button>
-                                </div>
+                        
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                <button class="button-submit" type="submit" (click)="onSubmitButtonClick()"
+                                    mat-button>Apply</button>
                             </div>
-                            <div style="clear: both;"></div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <span>
-                                        Already a user?
-                                        <a routerLink="/login" routerLinkActive="active">
-                                            Login
-                                        </a>
-                                    </span>
-                                </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                        <div class="row">
+                            <div class="col-md-12 pull-right">
+                                <span>
+                                    Already a user?
+                                    <a routerLink="/login" routerLinkActive="active">
+                                        Login
+                                    </a>
+                                </span>
                             </div>
-                        </mat-card-actions>
+                        </div>
+                        ]
                     </form>
                 </mat-card-content>
             </mat-card>
