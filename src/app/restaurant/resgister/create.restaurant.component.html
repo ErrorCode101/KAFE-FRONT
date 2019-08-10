@@ -1,86 +1,127 @@
-<div class="content">
-    <div fxLayout="row" fxFlex="100%" fxFlexFill>
-        <div fxLayout="column" fxFlex="65%" style="background-color: gray; overflow: hidden;" fxFlexFill>
-            <img class="food-background" src="../../../assets/img/Restaurent/Register/foodbackground.jpg"/>
+<div class="content-restaurant">
+    <div class="row" style="width:99%; margin: 0">
+        <div class="col-md-8">
+            &nbsp;
         </div>
-        <div fxLayout="column" fxFlex="35%" class="loading-container" fxFlexFill>
-            <div class="loading-overlay" *ngIf="isLoading">
-                <mat-progress-spinner
-                class="loader"
-                [color]="'primary'"
-                [mode]="'indeterminate'"
-                >
-                </mat-progress-spinner>
-            </div>            
-            <mat-card class="full-height">
-                    <h3>New Restaurant Requests</h3>
-                    <mat-card-subtitle>Create New Restaurant</mat-card-subtitle>
-                <mat-card-content>
+        <div class="col-md-4" style="padding: 0 !important;">
+            <mat-card class="restaruant-card" style="padding: 0">
+                <div class="loading-overlay" *ngIf="isLoading">
+                    <mat-progress-spinner class="loader" [color]="'primary'" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                </div>
+                <div class="header-ribbon">
+                    <h3 style="padding-left: 10px; padding-top:5px; padding-bottom:5px; ">
+                        Register now..
+                    </h3>
+                </div>
+                <mat-card-content style="padding: 4%;">
                     <form autocomplete="off" name="form" #f="ngForm" novalidate>
                         <mat-form-field class="full-width">
-                            <input matInput name="name" #name="ngModel" placeholder="Restaurant Name" [(ngModel)]="restuarantModel.restaurantName" required>
-                            <mat-error *ngIf="f.submitted && name.errors?.required">Restaurant name is required...</mat-error>
-                        </mat-form-field>
-                              
-                        <mat-form-field class="full-width">
-                            <input matInput name="address1" #address1="ngModel"placeholder="Address 1" [(ngModel)]="restuarantModel.addressLine1" required>
-                            <mat-error *ngIf="f.submitted && address1.errors?.required">Restaurant address is required...</mat-error>
+                            <input matInput name="name" #name="ngModel" placeholder="Restaurant Name"
+                                [(ngModel)]="restuarantModel.restaurantName" required>
+                            <mat-error *ngIf="f.submitted && name.errors?.required">Restaurant name is
+                                required...
+                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
-                            <input matInput name="address2" #address2="ngModel"placeholder="Address 2" [(ngModel)]="restuarantModel.addressLine2" >
+                            <input matInput name="address1" #address1="ngModel" placeholder="Address 1"
+                                [(ngModel)]="restuarantModel.addressLine1" required>
+                            <mat-error *ngIf="f.submitted && address1.errors?.required">Restaurant address is
+                                required...</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
-                            <input matInput name="city" #city="ngModel" placeholder="City" [(ngModel)]="restuarantModel.city" required>
-                            <mat-error *ngIf="f.submitted && city.errors?.required">City is required...</mat-error>
+                            <input matInput name="address2" #address2="ngModel" placeholder="Address 2"
+                                [(ngModel)]="restuarantModel.addressLine2">
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <input matInput name="city" #city="ngModel" placeholder="City"
+                                [(ngModel)]="restuarantModel.city" required>
+                            <mat-error *ngIf="f.submitted && city.errors?.required">City is required...
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field class="full-width">
-                            <input matInput name="contact" #contact="ngModel" placeholder="Contact No" 
-                            pattern="^[0-9]+$" minlength="9" maxlength="9" [ngModel]="restuarantModel.contactNumber" required> 
+                            <input matInput name="contact" #contact="ngModel" placeholder="Contact No"
+                                pattern="^[0-9]+$" minlength="9" maxlength="9" [ngModel]="restuarantModel.contactNumber"
+                                required>
                             <span matPrefix>+94&nbsp;</span>
-                            <mat-error *ngIf="f.submitted && contact.errors?.required">Contact number is required...</mat-error>
-                            <mat-error *ngIf="!contact.errors?.minlength && contact.errors?.pattern">Only numbers are allowed ...</mat-error>
-                            <mat-error *ngIf="contact.errors?.minlength">Contact Number should be 9 digits ...</mat-error>
+                            <mat-error *ngIf="f.submitted && contact.errors?.required">Contact number is
+                                required...
+                            </mat-error>
+                            <mat-error *ngIf="!contact.errors?.minlength && contact.errors?.pattern">Only
+                                numbers
+                                are allowed ...</mat-error>
+                            <mat-error *ngIf="contact.errors?.minlength">Contact Number should be 9 digits ...
+                            </mat-error>
                         </mat-form-field>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <mat-form-field class="full-width">
-                                    <input matInput name="first_name" #first_name="ngModel"  [(ngModel)]="restuarantModel.firstName" placeholder="First Name" required>
-                                    <mat-error *ngIf="f.submitted && first_name.errors?.required">First name is required...</mat-error>
+                                    <input matInput name="first_name" #first_name="ngModel"
+                                        [(ngModel)]="restuarantModel.firstName" placeholder="First Name" required>
+                                    <mat-error *ngIf="f.submitted && first_name.errors?.required">First name is
+                                        required...</mat-error>
                                 </mat-form-field>
                             </div>
                             <div class="col-md-6">
                                 <mat-form-field class="full-width">
-                                    <input matInput name="last_name" #last_name="ngModel"  [(ngModel)]="restuarantModel.lastName" placeholder="Last Name" required>
-                                    <mat-error *ngIf="f.submitted && last_name.errors?.required">Last name is required...</mat-error>
+                                    <input matInput name="last_name" #last_name="ngModel"
+                                        [(ngModel)]="restuarantModel.lastName" placeholder="Last Name" required>
+                                    <mat-error *ngIf="f.submitted && last_name.errors?.required">Last name is
+                                        required...</mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
-                        
+
                         <mat-form-field class="full-width">
-                            <input name="e_mail" type="email" #e_mail="ngModel" matInput placeholder="E-Mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" 
-                            [(ngModel)]="restuarantModel.username" required>
-                            <mat-error *ngIf="f.submitted && e_mail.errors?.required">Email is required...</mat-error>
-                            <mat-error *ngIf="!e_mail.errors?.required && e_mail.errors?.pattern">Not a valid E-Mail...</mat-error>
+                            <input name="e_mail" type="email" #e_mail="ngModel" matInput placeholder="E-Mail"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                                [(ngModel)]="restuarantModel.username" required>
+                            <mat-error *ngIf="f.submitted && e_mail.errors?.required">Email is required...
+                            </mat-error>
+                            <mat-error *ngIf="!e_mail.errors?.required && e_mail.errors?.pattern">Not a valid
+                                E-Mail...</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Password" name="password" #password="ngModel"
-                            [(ngModel)]="restuarantModel.password"
-                            pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{1,100}" minlength="5"
-                            [type]="hide ? 'password' : 'text'" required>
-                            <button mat-icon-button matSuffix (click)="hide = !hide" type="button" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                [(ngModel)]="restuarantModel.password"
+                                pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{1,100}" minlength="5"
+                                [type]="hide ? 'password' : 'text'" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" type="button"
+                                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
-                            <mat-error *ngIf="f.submitted && password.errors?.required">Password is required...</mat-error>
-                            <mat-error *ngIf="password.errors?.minlength">Password must have at least 5 characters...</mat-error>
-                            <mat-error *ngIf="!password.errors?.minlength && password.errors?.pattern">Password must contain at least 1 Upper case letter, 1 Lower case letter and a number...</mat-error>
+                            <mat-error *ngIf="f.submitted && password.errors?.required">Password is required...
+                            </mat-error>
+                            <mat-error *ngIf="password.errors?.minlength">Password must have at least 5
+                                characters...</mat-error>
+                            <mat-error *ngIf="!password.errors?.minlength && password.errors?.pattern">Password
+                                must
+                                contain at least 1 Upper case letter, 1 Lower case letter and a number...
+                            </mat-error>
                         </mat-form-field>
-                        <mat-card-actions>
-                            <button class="full-width button-submit" type="submit"
-                            (click)="onSubmitButtonClick()" mat-button>Create Restaurant</button>
+                        <mat-card-actions style="margin: 0">
+                            <div class="row pull-right">
+                                <div class="col-md-12">
+                                    <button class="button-submit" type="submit" (click)="onSubmitButtonClick()"
+                                        mat-button>Apply</button>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span>
+                                        Already a user?
+                                        <a routerLink="/login" routerLinkActive="active">
+                                            Login
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
                         </mat-card-actions>
                     </form>
                 </mat-card-content>

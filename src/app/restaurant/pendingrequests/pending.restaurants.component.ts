@@ -5,6 +5,7 @@ import { CommonService } from "app/services/common.service";
 
 @Component({
     templateUrl: 'pending.restaurants.component.html',
+    selector: 'pending-requests',
     moduleId: module.id,
     styles: [`h3.sub-head{
                 background-color: #eee;
