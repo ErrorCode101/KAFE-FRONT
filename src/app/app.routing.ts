@@ -50,7 +50,7 @@ const routes: Routes =[
 
 @NgModule({
   declarations:[
-    TableListComponent
+    
   ],
   imports: [
     CommonModule,

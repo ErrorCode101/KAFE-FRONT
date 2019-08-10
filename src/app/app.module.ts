@@ -15,7 +15,7 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
-import {DialogOverviewExampleDialog} from './table-list/table-list.component';
+import {DialogOverviewExampleDialog, TableListComponent} from './table-list/table-list.component';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -31,12 +31,14 @@ import { AddUserComponent } from './user/adduser/adduser.component';
 import { HttpService } from './services/https.service';
 import { CommonService } from './services/common.service';
 import { HomeComponent } from './home/home.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserModule,
     HttpModule,
     ComponentsModule,
     RouterModule,
@@ -56,7 +58,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule,
+    MatListModule,  
     FlexLayoutModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
@@ -70,7 +72,8 @@ import { HomeComponent } from './home/home.component';
     CreateRestaurantComponent,
     PendingRestaurantComponent,
     AddUserComponent,
-    HomeComponent
+    HomeComponent,
+    TableListComponent
   ],
   providers: [HttpService, CommonService],
   bootstrap: [AppComponent]

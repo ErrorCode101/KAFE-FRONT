@@ -27,6 +27,7 @@
 .content {
   height: 100vh;
   min-height: 100%;
+  padding: 2px;
   position: relative;
 }
 
@@ -115,4 +116,8 @@ h1.example-app-name {
 
 .side-nav{
   width: 20%;
+}
+
+.side-selected{
+  background-color: #9c27b0;;
 }

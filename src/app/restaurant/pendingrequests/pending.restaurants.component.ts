@@ -62,9 +62,10 @@ export class PendingRestaurantComponent implements OnInit{
     }
 
     onReject(data: PendingRestaurantsModel): void{
-        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/delete/" + data.restaurantId;
+        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/update";
 
-        this.httpService.getData(url).then((res: PendingRestaurantsModel) => {
+        data.restaurantStatus = "REJECT";
+        this.httpService.postData(url, data).then((res: PendingRestaurantsModel) => {
             if(res != null){
                 console.log(res);
             }
