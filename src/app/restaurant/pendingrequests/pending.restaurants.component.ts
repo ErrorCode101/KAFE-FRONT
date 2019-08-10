@@ -26,7 +26,7 @@ export class PendingRestaurantComponent implements OnInit{
     ngOnInit(): void {
         //throw new Error("Method not implemented.");
         this.getPendingRequests();
-        for(let i = 0;i < 20; i++)
+        for(let i = 0;i < 4; i++)
         this.gridData.push({restaurantId: "1", restaurantName: "Test", 
         addressLine1: "TEST", addressLine2: "TEST", contactNumber: "TEST", city: "TEST", isdeleted : false, restaurantStatus: ""})
     }
