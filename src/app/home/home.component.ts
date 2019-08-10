@@ -4,7 +4,7 @@ import { RestuarantCreateModel } from "app/models/restaurant/create/restuarant.c
 import { HttpService } from "app/services/https.service";
 import { MatDialog, MatSnackBar } from "@angular/material";
 import { CommonService } from "app/services/common.service";
-import { SideBarTabs, tabs } from "app/models/sidebar.tabs.mode";
+import { SideBarTabs, tabs, SideTabModel } from "app/models/sidebar.tabs.mode";
 import { trigger, transition, style, animate } from "@angular/animations";
 
 @Component({
@@ -33,14 +33,16 @@ import { trigger, transition, style, animate } from "@angular/animations";
 export class HomeComponent {
 
     sideBarTabs = SideBarTabs;
-    fillerNav: { label: string; tab: string; }[] = tabs;
-    activeTab: string = SideBarTabs.ADD_USER;
+    fillerNav: SideTabModel[] = tabs;
+    activeTab: SideTabModel;
 
     constructor(private httpService: HttpService, private commonService: CommonService, private snackBar: MatSnackBar) {
-
+        this.activeTab = this.fillerNav.find(x => x.tab == SideBarTabs.ADD_USER); 
     }
-    onChangeTab(tab: string): void {
+    onChangeTab(tab: SideTabModel): void {
         this.activeTab = tab;
     }
 }
+
+
 

@@ -52,6 +52,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatRippleModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,

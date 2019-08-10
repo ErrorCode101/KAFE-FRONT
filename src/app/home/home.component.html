@@ -7,17 +7,19 @@
             </mat-toolbar>
             Sidenav content
             <mat-nav-list>
-                <a mat-list-item [ngClass]="{'side-selected': nav.tab == activeTab}" (click)="onChangeTab(nav.tab)"
-                    *ngFor="let nav of fillerNav">{{nav.label}}</a>
+                <a mat-list-item [ngClass]="{'side-selected': nav.tab == activeTab.tab}" (click)="onChangeTab(nav)"
+                    *ngFor="let nav of fillerNav">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon">{{nav.icon}}</mat-icon> &nbsp;
+                    {{nav.label}}</a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
             <mat-card style="height:98vh">
-                <h3>Add User</h3>
-                <mat-card-subtitle>Add new user to the restaurant</mat-card-subtitle>
+                <h3>{{activeTab.title}}</h3>
+                <mat-card-subtitle>{{activeTab.description}}</mat-card-subtitle>
                 <mat-card-content>
-                    <add-user *ngIf="activeTab == sideBarTabs.ADD_USER"></add-user>
-                    <app-table-list *ngIf="activeTab == sideBarTabs.ADD_MENU" ></app-table-list>
+                    <add-user *ngIf="activeTab.tab == sideBarTabs.ADD_USER"></add-user>
+                    <app-table-list *ngIf="activeTab.tab == sideBarTabs.ADD_MENU" ></app-table-list>
                 </mat-card-content>
             </mat-card>
         </mat-sidenav-content>
