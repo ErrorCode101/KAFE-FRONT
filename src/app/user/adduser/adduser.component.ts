@@ -1,9 +1,10 @@
 import { Component, OnInit, OnChanges, ViewChild } from "@angular/core";
 import {FormControl, Validators, NgForm} from '@angular/forms';
-import { RestuarantCreateModel } from "app/models/restaurant/create/restuarant.create.model";
+import { UserCreateDTO } from "app/models/user/user.create.model";
 
 @Component({
     templateUrl: 'adduser.component.html',
+    selector: 'add-user',
     moduleId: module.id,
     styles: [`h3.sub-head{
                 background-color: #eee;
@@ -14,10 +15,9 @@ import { RestuarantCreateModel } from "app/models/restaurant/create/restuarant.c
 
 export class AddUserComponent {
 
-
     @ViewChild('f', {static: false}) form: NgForm;
 
-    restuarantModel: RestuarantCreateModel = new RestuarantCreateModel();
+    userModel: UserCreateDTO = new UserCreateDTO();
     hide:boolean = true;
     isLoading:boolean = false;
 

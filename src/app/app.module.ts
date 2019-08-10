@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
-import { MatTabsModule, MatTableModule, MatGridListModule, MatCardModule } from '@angular/material';
+import { MatTabsModule, MatTableModule, MatGridListModule, MatCardModule, MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {
@@ -27,9 +27,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateRestaurantComponent } from './restaurant/resgister/create.restaurant.component';
 import { PendingRestaurantComponent } from './restaurant/pendingrequests/pending.restaurants.component';
-import { AddUserComponent } from './restaurant/user/adduser/adduser.component';
+import { AddUserComponent } from './user/adduser/adduser.component';
 import { HttpService } from './services/https.service';
 import { CommonService } from './services/common.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,9 @@ import { CommonService } from './services/common.service';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
     FlexLayoutModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
@@ -65,7 +69,8 @@ import { CommonService } from './services/common.service';
     DialogOverviewExampleDialog,
     CreateRestaurantComponent,
     PendingRestaurantComponent,
-    AddUserComponent
+    AddUserComponent,
+    HomeComponent
   ],
   providers: [HttpService, CommonService],
   bootstrap: [AppComponent]

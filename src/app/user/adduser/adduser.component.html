@@ -10,46 +10,37 @@
                 </mat-progress-spinner>
             </div>
             <mat-card class="full-height">
-                <mat-card-header class="header-title">
-                    <mat-card-title class="header-title">Register Restaurant</mat-card-title>
-                    <mat-card-subtitle>Create New Restaurant</mat-card-subtitle>
-                </mat-card-header>
+                <h3>Add User</h3>
+                <mat-card-subtitle>Add new user to the restaurant</mat-card-subtitle>
                 <mat-card-content>
                     <form autocomplete="off" name="form" #f="ngForm" novalidate>
-                        <mat-form-field class="full-width">
-                            <input matInput name="name" #name="ngModel" placeholder="Restaurant Name" [(ngModel)]=restuarantModel.name required>
-                            <mat-error *ngIf="f.submitted && name.errors?.required">Restaurant name is required...</mat-error>
-                        </mat-form-field>
-                              
-                        <mat-form-field class="full-width">
-                            <input matInput name="address" #address="ngModel"placeholder="Restaurant Address" [(ngModel)]=restuarantModel.address required>
-                            <mat-error *ngIf="f.submitted && address.errors?.required">Restaurant address is required...</mat-error>
-                        </mat-form-field>
 
-                        <mat-form-field class="full-width">
-                            <input matInput name="contact" #contact="ngModel" placeholder="Contact No" 
-                            pattern="^[0-9]+$" minlength="9" maxlength="9" [ngModel]="restuarantModel.contact" required> 
-                            <span matPrefix>+94&nbsp;</span>
-                            <mat-error *ngIf="f.submitted && contact.errors?.required">Contact number is required...</mat-error>
-                            <mat-error *ngIf="!contact.errors?.minlength && contact.errors?.pattern">Only numbers are allowed ...</mat-error>
-                            <mat-error *ngIf="contact.errors?.minlength">Contact Number should be 9 digits ...</mat-error>
-                        </mat-form-field>
 
-                        <mat-form-field class="full-width">
-                            <input matInput name="user" #user="ngModel"  [(ngModel)]="restuarantModel.user" placeholder="User Name" required>
-                            <mat-error *ngIf="f.submitted && user.errors?.required">User name is required...</mat-error>
-                        </mat-form-field>
-
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width">
+                                    <input matInput name="first_name" #first_name="ngModel"  [(ngModel)]="userModel.firstName" placeholder="First Name" required>
+                                    <mat-error *ngIf="f.submitted && first_name.errors?.required">First name is required...</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width">
+                                    <input matInput name="last_name" #last_name="ngModel"  [(ngModel)]="userModel.lastName" placeholder="Last Name" required>
+                                    <mat-error *ngIf="f.submitted && last_name.errors?.required">Last name is required...</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        
                         <mat-form-field class="full-width">
                             <input name="e_mail" type="email" #e_mail="ngModel" matInput placeholder="E-Mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" 
-                            [(ngModel)]="restuarantModel.email" required>
+                            [(ngModel)]="userModel.username" required>
                             <mat-error *ngIf="f.submitted && e_mail.errors?.required">Email is required...</mat-error>
                             <mat-error *ngIf="!e_mail.errors?.required && e_mail.errors?.pattern">Not a valid E-Mail...</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Password" name="password" #password="ngModel"
-                            [(ngModel)]="restuarantModel.password"
+                            [(ngModel)]="userModel.password"
                             pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{1,100}" minlength="5"
                             [type]="hide ? 'password' : 'text'" required>
                             <button mat-icon-button matSuffix (click)="hide = !hide" type="button" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -61,7 +52,7 @@
                         </mat-form-field>
                         <mat-card-actions>
                             <button class="full-width button-submit" type="submit"
-                            (click)="onSubmitButtonClick()" mat-button>Create Restaurant</button>
+                            (click)="onSubmitButtonClick()" mat-button>Add User</button>
                         </mat-card-actions>
                     </form>
                 </mat-card-content>
