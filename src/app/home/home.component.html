@@ -23,8 +23,9 @@
                     {{nav.label}}
                 </a>
             </mat-nav-list>
-            <mat-toolbar class="slide-footer">Logout &nbsp;
-                <mat-icon aria-hidden="false" aria-label="Example home icon">power_settings_new</mat-icon>
+            <mat-toolbar class="slide-footer"> <button type="button" (click)="logout()" mat-button>Logout &nbsp;
+                    <mat-icon aria-hidden="false" aria-label="Example home icon">power_settings_new</mat-icon>
+                </button>
             </mat-toolbar>
         </mat-sidenav>
         <mat-sidenav-content>

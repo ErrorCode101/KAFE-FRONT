@@ -10,6 +10,37 @@ export class HttpService {
     constructor(private http: HttpClient, private cookieService: CookieService) { }
 
 
+    get(dataUrl: string): Promise<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic cXJpb21hdHJpeC1jbGllbnQ6cXJpb21hdHJpeC1zZWNyZXQ='
+            })
+        };
+
+
+        return this.http.get(dataUrl
+            , httpOptions)
+            .toPromise()
+            .then((response: JSON) => response)
+            .catch(this.handleError);
+    }
+
+    post(dataUrl: string, body: any): Promise<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic cXJpb21hdHJpeC1jbGllbnQ6cXJpb21hdHJpeC1zZWNyZXQ='
+            })
+        };
+
+        return this.http.post(dataUrl
+            , body, httpOptions)
+            .toPromise()
+            .then((response: JSON) => response)
+            .catch(this.handleError);
+    }
     getData(dataUrl: string): Promise<any> {
         const httpOptions = {
             headers: new HttpHeaders({

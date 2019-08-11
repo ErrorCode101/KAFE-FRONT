@@ -34,7 +34,7 @@ export class CreateRestaurantComponent {
             
             let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/init";
 
-            this.httpService.postData(url, this.restuarantModel).then(res => {
+            this.httpService.post(url, this.restuarantModel).then(res => {
                 this.snackBar.open("Your application successfully submitted to be approved...", "OK",
                 {duration:4000});
                 this.form.resetForm();

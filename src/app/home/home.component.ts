@@ -6,6 +6,7 @@ import { MatDialog, MatSnackBar } from "@angular/material";
 import { CommonService } from "app/services/common.service";
 import { SideBarTabs, tabs, SideTabModel } from "app/models/sidebar.tabs.mode";
 import { trigger, transition, style, animate } from "@angular/animations";
+import { Router } from "@angular/router";
 
 @Component({
     templateUrl: 'home.component.html',
@@ -36,11 +37,15 @@ export class HomeComponent {
     fillerNav: SideTabModel[] = tabs;
     activeTab: SideTabModel;
 
-    constructor(private httpService: HttpService, private commonService: CommonService, private snackBar: MatSnackBar) {
+    constructor(private httpService: HttpService, private commonService: CommonService, private snackBar: MatSnackBar, private _router:Router) {
         this.activeTab = this.fillerNav.find(x => x.tab == SideBarTabs.ADD_MENU); 
     }
     onChangeTab(tab: SideTabModel): void {
         this.activeTab = tab;
+    }
+
+    logout(): void{
+        this._router.navigateByUrl("/login");
     }
 }
 
