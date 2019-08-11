@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      
+      'Authorization': 'Basic cXJpb21hdHJpeC1jbGllbnQ6cXJpb21hdHJpeC1zZWNyZXQ='
     })
 };
 

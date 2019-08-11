@@ -37,7 +37,7 @@ export class HomeComponent {
     activeTab: SideTabModel;
 
     constructor(private httpService: HttpService, private commonService: CommonService, private snackBar: MatSnackBar) {
-        this.activeTab = this.fillerNav.find(x => x.tab == SideBarTabs.ADD_USER); 
+        this.activeTab = this.fillerNav.find(x => x.tab == SideBarTabs.ADD_MENU); 
     }
     onChangeTab(tab: SideTabModel): void {
         this.activeTab = tab;

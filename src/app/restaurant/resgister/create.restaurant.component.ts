@@ -36,7 +36,8 @@ export class CreateRestaurantComponent {
 
             this.httpService.postData(url, this.restuarantModel).then(res => {
                 this.snackBar.open("Your application successfully submitted to be approved...", "OK",
-                {duration:2000});
+                {duration:4000});
+                this.form.resetForm();
                 this.isLoading = false;
             }).catch(err => {
                 console.error(err);
