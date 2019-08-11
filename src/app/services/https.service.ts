@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/toPromise';
+import { CookieService } from "ngx-cookie-service";
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -13,7 +14,7 @@ const httpOptions = {
 export class HttpService{
 
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient, private cookieService: CookieService){}
 
 
     getData(dataUrl: string): Promise<any> {

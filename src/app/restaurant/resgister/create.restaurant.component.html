@@ -44,17 +44,15 @@
                         </mat-form-field>
                         <mat-form-field class="full-width">
                             <input matInput name="contact" #contact="ngModel" placeholder="Contact No"
-                                pattern="^[0-9]+$" minlength="9" maxlength="9" [ngModel]="restuarantModel.contactNumber"
+                                pattern="^[0-9]+$" [ngModel]="restuarantModel.contactNumber"
                                 required>
                             <span matPrefix>+94&nbsp;</span>
                             <mat-error *ngIf="f.submitted && contact.errors?.required">Contact number is
                                 required...
                             </mat-error>
-                            <mat-error *ngIf="!contact.errors?.minlength && contact.errors?.pattern">Only
+                            <mat-error *ngIf="contact.errors?.pattern">Only
                                 numbers
                                 are allowed ...</mat-error>
-                            <mat-error *ngIf="contact.errors?.minlength">Contact Number should be 9 digits ...
-                            </mat-error>
                         </mat-form-field>
 
                         <div class="row">

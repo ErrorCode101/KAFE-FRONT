@@ -32,6 +32,7 @@ import { HttpService } from './services/https.service';
 import { CommonService } from './services/common.service';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   imports: [
@@ -76,7 +77,7 @@ import { BrowserModule } from '@angular/platform-browser';
     HomeComponent,
     TableListComponent
   ],
-  providers: [HttpService, CommonService],
+  providers: [HttpService, CommonService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
