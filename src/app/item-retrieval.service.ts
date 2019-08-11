@@ -23,6 +23,8 @@ export class ItemRetrievalService {
   }
 
   public saveItem(item:Item){
-    return this.http.post(this.commonService.GetCoreServiceUrl() +'menuitem/save', item);
+    return this.http.post(this.commonService.GetCoreServiceUrl() +'menuitem/save?access_token=' +
+    this.cookieService.get('restaurant-auth')
+    , item);
   }
 }

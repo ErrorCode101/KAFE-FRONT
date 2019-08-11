@@ -117,7 +117,7 @@ h1.example-app-name {
 }
 
 .side-nav{
-  width: 20%;
+  width: 18%;
 }
 
 .side-selected{
@@ -153,28 +153,30 @@ h1.example-app-name {
   
 }
 .header-sidebar-ribbon{
-  background-color: #EF6C00;
-  color: white;
+  background-color: #F5F5F5;
+  color: darkslategrey;
   padding: 5px;
   opacity: 1 !important;
+  height: 18vh;
 }
 .line-ribbon{
-  background-color: #E65100;
-  color: white;
+  background-color: #E0E0E0;
+  color: black;
   padding: 5px;
   opacity: 1 !important;
   height: 5vh;
 }
 
 .header-sidebar-right-ribbon{
-  background-color: #FF8F00;
-  color: white;
+  background-color: #F5F5F5;
+  color: darkslategrey;
   padding: 5px;
   opacity: 1 !important;
+  height: 18vh;
 }
 .line-right-ribbon{
-  background-color: #FF6F00;
-  color: white;
+  background-color: #BDBDBD;
+  color: black;
   padding: 5px;
   opacity: 1 !important;
   height: 5vh;
@@ -211,4 +213,8 @@ h1.example-app-name {
   color:white;
   padding-top: 42vh;
   opacity: 0.3;
+}
+
+.logo-menu{
+  width: 45%;
 }
