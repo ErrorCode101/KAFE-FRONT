@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormGroup, FormControl, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import {AuthenticationService} from '../authentication.service';
 import {CookieService} from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
     loginForm;
 
-  constructor(private cookieService: CookieService, private authenticationService: AuthenticationService, private formBuilder: FormBuilder) {
+  constructor(private cookieService: CookieService, private authenticationService: AuthenticationService, private formBuilder: FormBuilder, private _router: Router,) {
 
       this.loginForm = this.formBuilder.group({
         userName:"",
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
         debugger;
         if(data!=null){
           this.cookieService.set('restaurant-auth', data.access_token);
+          this._router.navigateByUrl('/home');
         }
       },
       (error:any) => {

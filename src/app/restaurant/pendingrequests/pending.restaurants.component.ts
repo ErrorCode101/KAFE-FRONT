@@ -26,9 +26,7 @@ export class PendingRestaurantComponent implements OnInit{
     ngOnInit(): void {
         //throw new Error("Method not implemented.");
         this.getPendingRequests();
-        for(let i = 0;i < 4; i++)
-        this.gridData.push({restaurantId: "1", restaurantName: "Test", 
-        addressLine1: "TEST", addressLine2: "TEST", contactNumber: "TEST", city: "TEST", isdeleted : false, restaurantStatus: ""})
+        
     }
 
 
@@ -38,7 +36,7 @@ export class PendingRestaurantComponent implements OnInit{
     }
 
     private getPendingRequests(): void{
-        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/allrestaurant/toBeApproved";
+        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/toBeApproved?";
         this.isLoading = true;
         this.httpService.getData(url).then((res: PendingRestaurantsModel[]) => {
             if(res != null){
@@ -53,9 +51,9 @@ export class PendingRestaurantComponent implements OnInit{
     }
 
     onAccept(data: PendingRestaurantsModel): void{
-        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/update";
+        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/update?";
         this.isLoading = true;
-        data.restaurantStatus = "ACTIVE";
+        data.restaurantStatus = "APPROVED";
         this.httpService.postData(url, data).then((res: PendingRestaurantsModel) => {
             if(res != null){
                 console.log(res);
@@ -72,9 +70,9 @@ export class PendingRestaurantComponent implements OnInit{
     }
 
     onReject(data: PendingRestaurantsModel): void{
-        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/update";
+        let url: string = this.commonService.GetCoreServiceUrl() + "restaurant/update?";
         this.isLoading = true;
-        data.restaurantStatus = "REJECT";
+        data.restaurantStatus = "REJECTED";
         this.httpService.postData(url, data).then((res: PendingRestaurantsModel) => {
             if(res != null){
                 console.log(res);

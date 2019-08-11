@@ -33,7 +33,7 @@ export class AddUserComponent {
         if(this.form.valid){
             this.isLoading = true;
             
-            let url: string = this.commonService.GetCoreServiceUrl() + "/user/create";
+            let url: string = this.commonService.GetCoreServiceUrl() + "user/create?";
 
             this.httpService.postData(url, this.userModel).then(res => {
                 this.snackBar.open("User has been added successfully..", "OK",
