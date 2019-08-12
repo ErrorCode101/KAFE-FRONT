@@ -37,6 +37,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { DialogueboxComponent } from './dialoguebox/dialoguebox.component';
 import { OrderCardComponent } from './order-card/order-card.component';
 import { AdminHomeComponent } from './admin/admin.home.component';
+import { AdminLoginComponent } from './admin_login/admin.login.component';
 
 @NgModule({
   imports: [
@@ -84,6 +85,7 @@ import { AdminHomeComponent } from './admin/admin.home.component';
     OrderListComponent,
     DialogueboxComponent,
     OrderCardComponent,
+    AdminLoginComponent
   ],
   providers: [HttpService, CommonService, CookieService],
   bootstrap: [AppComponent]
