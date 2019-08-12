@@ -46,7 +46,6 @@
                             <input matInput name="contact" #contact="ngModel" placeholder="Contact No"
                                 pattern="^[0-9]+$" [ngModel]="restuarantModel.contactNumber"
                                 required>
-                            <span matPrefix>+94&nbsp;</span>
                             <mat-error *ngIf="f.submitted && contact.errors?.required">Contact number is
                                 required...
                             </mat-error>
