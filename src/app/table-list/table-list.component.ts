@@ -35,15 +35,35 @@ export class TableListComponent {
     })
   }
 
-  openDialog(): void {
+  openDialog(action,obj): void {
+    obj.action = action;
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '50%',
-      data: {}
+      data:obj
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event == 'Update'){
+        this.updateRowData(result.data);
+      }else if(result.event == 'Delete'){
+        this.deleteRowData(result.data);
+      }
+    });
+  }
+
+  updateRowData(item:any): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '50%',
+      data: item
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  deleteRowData(itemId: any):void{
+    debugger
   }
 }
 
@@ -66,10 +86,15 @@ export class DialogOverviewExampleDialog {
       ingredients: []
     }
 
+    action:string;
+    local_data:any;
+
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private itemRetrievalService:ItemRetrievalService) {
-      
+    @Inject(MAT_DIALOG_DATA) public data: Item,private itemRetrievalService:ItemRetrievalService) {
+      console.log(data);
+      this.local_data = {...data};
+      this.action = this.local_data.action;
     }
 
     onSubmit(){
@@ -78,6 +103,14 @@ export class DialogOverviewExampleDialog {
       }, error => {
         debugger
       })
+    }
+
+    doAction(){
+      this.dialogRef.close({event:this.action,data:this.local_data});
+    }
+   
+    closeDialog(){
+      this.dialogRef.close({event:'Cancel'});
     }
 
   onNoClick(event:any): void {

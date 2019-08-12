@@ -12,7 +12,7 @@
             </div>
             <div class="line-ribbon">
                 <span style="padding-left: 10px; padding-top:5px; padding-bottom:5px; ">
-                    Restaurant Name
+                    Admin Dashboard
                 </span>
             </div>
 
@@ -43,9 +43,9 @@
 
                 <mat-card-content>
                     <div class="slide-content">
-                        <add-user *ngIf="activeTab.tab == sideBarTabs.ADD_USER"></add-user>
-                        <app-table-list *ngIf="activeTab.tab == sideBarTabs.ADD_MENU"></app-table-list>
-                        <!-- <pending-requests *ngIf="activeTab.tab == sideBarTabs.PENDING_REQUESTS"></pending-requests> -->
+                        <!-- <add-user *ngIf="activeTab.tab == sideBarTabs.ADD_USER"></add-user>
+                        <app-table-list *ngIf="activeTab.tab == sideBarTabs.ADD_MENU"></app-table-list> -->
+                        <pending-requests *ngIf="activeTab.tab == sideBarTabs.PENDING_REQUESTS"></pending-requests>
                     </div>
                 </mat-card-content>
             </mat-card>

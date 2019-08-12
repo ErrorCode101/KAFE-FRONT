@@ -4,10 +4,14 @@
   
   
   .bgpic{
-    background-size:cover;
-    width:auto;
-    background-image:url('bgpic.jpg');
-    background-position:50% 50%;
+    width:100%;
+    background-image:url("../../assets/img/bgpic.jpg");
+    height: 768px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
   }
   
   .demo-tab-content {

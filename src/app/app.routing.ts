@@ -19,6 +19,7 @@ import { CreateRestaurantComponent } from './restaurant/resgister/create.restaur
 import { PendingRestaurantComponent } from './restaurant/pendingrequests/pending.restaurants.component';
 import { AddUserComponent } from './user/adduser/adduser.component';
 import { HomeComponent } from './home/home.component';
+import { AdminHomeComponent } from './admin/admin.home.component';
 
 const routes: Routes =[
   {
@@ -45,6 +46,10 @@ const routes: Routes =[
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'admin/home',
+    component: AdminHomeComponent
   }
 ];
 

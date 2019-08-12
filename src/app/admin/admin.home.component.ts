@@ -4,12 +4,12 @@ import { RestuarantCreateModel } from "app/models/restaurant/create/restuarant.c
 import { HttpService } from "app/services/https.service";
 import { MatDialog, MatSnackBar } from "@angular/material";
 import { CommonService } from "app/services/common.service";
-import { SideBarTabs, tabs, SideTabModel } from "app/models/sidebar.tabs.mode";
+import { SideBarTabs, tabs, SideTabModel, adminTabs } from "app/models/sidebar.tabs.mode";
 import { trigger, transition, style, animate } from "@angular/animations";
 import { Router } from "@angular/router";
 
 @Component({
-    templateUrl: 'home.component.html',
+    templateUrl: 'admin.home.component.html',
     moduleId: module.id,
     styles: [`h3.sub-head{
                 background-color: #eee;
@@ -31,14 +31,14 @@ import { Router } from "@angular/router";
 
 })
 
-export class HomeComponent {
+export class AdminHomeComponent {
 
     sideBarTabs = SideBarTabs;
-    fillerNav: SideTabModel[] = tabs;
+    fillerNav: SideTabModel[] = adminTabs;
     activeTab: SideTabModel;
 
     constructor(private httpService: HttpService, private commonService: CommonService, private snackBar: MatSnackBar, private _router:Router) {
-        this.activeTab = this.fillerNav.find(x => x.tab == SideBarTabs.ADD_MENU); 
+        this.activeTab = this.fillerNav.find(x => x.tab == SideBarTabs.PENDING_REQUESTS); 
     }
     onChangeTab(tab: SideTabModel): void {
         this.activeTab = tab;

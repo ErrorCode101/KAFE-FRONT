@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
 
     loginForm;
 
-  constructor(private cookieService: CookieService, private authenticationService: AuthenticationService, private formBuilder: FormBuilder, private _router: Router,) {
+  constructor(private cookieService: CookieService, private authenticationService: AuthenticationService, private formBuilder: FormBuilder,
+    private _router:Router) {
 
       this.loginForm = this.formBuilder.group({
         userName:"",
@@ -33,14 +34,11 @@ export class LoginComponent implements OnInit {
       grant_type: "password"
     }).subscribe(
       (data:any) => {
-        debugger;
-        if(data!=null){
-          this.cookieService.set('restaurant-auth', data.access_token);
-          this._router.navigateByUrl('/home');
-        }
+        this.cookieService.set('restaurant-auth', data.access_token);
+        this._router.navigateByUrl("home");
       },
       (error:any) => {
-        debugger;
+        
       }
     )
   }

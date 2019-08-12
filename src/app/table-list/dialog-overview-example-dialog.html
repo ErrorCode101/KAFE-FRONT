@@ -1,31 +1,35 @@
 <h1 mat-dialog-title>Enter Details</h1>
-<div mat-dialog-content>
-  <p>ID : </p>
+<div mat-dialog-content style="width: 80%" *ngIf="action != 'Delete'; else elseTemplate">
+  <p>Id : </p>
   <mat-form-field>
     <input matInput [(ngModel)]="data.itemId" (ngModelChange)="idChanged($event)">
   </mat-form-field>
-  <p>name : </p>
+  <p>Name : </p>
   <mat-form-field>
     <input matInput [(ngModel)]="data.name" (ngModelChange)="nameChanged($event)">
   </mat-form-field>
-  <p>description : </p>
+  <p>Description : </p>
   <mat-form-field>
     <input matInput [(ngModel)]="data.description" (ngModelChange)="descriptionChanged($event)">
   </mat-form-field>
   <p>Ready In Minutes : </p>
   <mat-form-field>
-    <input type="number" [(ngModel)]="data.readyInMinutes" (ngModelChange)="readyInMinsChanged($event)">
+    <input type="number" class="form-control" matInput [(ngModel)]="data.readyInMinutes" (ngModelChange)="readyInMinsChanged($event)">
   </mat-form-field>
   <p>Price : </p>
   <mat-form-field>
-    <input type="number" [(ngModel)]="data.price" (ngModelChange)="priceChanged($event)">
+    <input type="number" class="form-control" matInput [(ngModel)]="data.price" (ngModelChange)="priceChanged($event)">
   </mat-form-field>
   <p>Image : </p>
-  <mat-form-field>
-    <input type="file" (change)="fileChanged($event)" [(ngModel)]="data.imageUrl">
-  </mat-form-field>
+  <div>
+    <input type="file" [(ngModel)]="data.imageUrl" (change)="fileChanged($event)"/>
+  </div>
 </div>
+<ng-template #elseTemplate>
+    Sure to delete <b>{{local_data.name}}</b>?
+  </ng-template>
+<br>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" (click)="onSubmit()" cdkFocusInitial>Ok</button>
+    <button mat-button (click)="onSubmit()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
 </div>

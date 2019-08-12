@@ -33,6 +33,10 @@ import { CommonService } from './services/common.service';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import {CookieService} from 'ngx-cookie-service';
+import { OrderListComponent } from './order-list/order-list.component';
+import { DialogueboxComponent } from './dialoguebox/dialoguebox.component';
+import { OrderCardComponent } from './order-card/order-card.component';
+import { AdminHomeComponent } from './admin/admin.home.component';
 
 @NgModule({
   imports: [
@@ -68,6 +72,7 @@ import {CookieService} from 'ngx-cookie-service';
   ],
   declarations: [
     AppComponent,
+    AdminHomeComponent,
     AdminLayoutComponent,
     LoginComponent,
     DialogOverviewExampleDialog,
@@ -75,7 +80,10 @@ import {CookieService} from 'ngx-cookie-service';
     PendingRestaurantComponent,
     AddUserComponent,
     HomeComponent,
-    TableListComponent
+    TableListComponent,
+    OrderListComponent,
+    DialogueboxComponent,
+    OrderCardComponent,
   ],
   providers: [HttpService, CommonService, CookieService],
   bootstrap: [AppComponent]
