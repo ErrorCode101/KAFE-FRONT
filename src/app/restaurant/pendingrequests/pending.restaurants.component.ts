@@ -20,7 +20,7 @@ export class PendingRestaurantComponent implements OnInit{
     hide:boolean = true;
     isLoading:boolean = false;
     gridData: PendingRestaurantsModel[] = [];
-    displayedColumns: string[] = ["RestaurantId","RestaurantName","RestaurantAddress","RestaurantUser",
+    displayedColumns: string[] = ["id","RestaurantName","RestaurantAddress",
     "ButtonOne", "ButtonTwo"];
 
     ngOnInit(): void {

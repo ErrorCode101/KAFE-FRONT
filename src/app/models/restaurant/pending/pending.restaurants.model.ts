@@ -7,4 +7,5 @@ export class PendingRestaurantsModel{
     restaurantId: string;
     restaurantName: string;
     restaurantStatus: string;
+    id:string;
 }

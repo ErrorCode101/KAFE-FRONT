@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -13,21 +13,11 @@ export class AuthenticationService {
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic cXJpb21hdHJpeC1jbGllbnQ6cXJpb21hdHJpeC1zZWNyZXQ='
+        'Authorization': 'Basic cXJpb21hdHJpeC1jbGllbnQ6cXJpb21hdHJpeC1zZWNyZXQ=',
+        'Content-Type': 'application/x-form-urlencoded'
       })
     };
-
-    const params = new HttpParams({
-      fromObject: {
-        grant_type: 'password',
-        username: userData.username,
-        password: userData.password
-      }
-    });
-
-
     
-    return this.http.post("https://qriomatrix-kafe.herokuapp.com/oauth/token",params,httpOptions);
+    return this.http.post("https://qriomatrix-kafe.herokuapp.com/oauth/token",userData,httpOptions);
   }
 }

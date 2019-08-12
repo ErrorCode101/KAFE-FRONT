@@ -1,9 +1,9 @@
 <!-- <h3>New Restaurant Requests</h3> -->
 <table mat-table [dataSource]="gridData" >
 
-    <ng-container matColumnDef="RestaurantId">
+    <ng-container matColumnDef="id">
         <th class="table-header" mat-header-cell *matHeaderCellDef> Restaurant Id </th>
-        <td mat-cell *matCellDef="let element"> {{element.restaurantId}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="RestaurantName">
@@ -14,16 +14,12 @@
     <ng-container matColumnDef="RestaurantAddress">
         <th class="table-header" mat-header-cell *matHeaderCellDef> Restaurant Address </th>
         <td mat-cell *matCellDef="let element">
-            {{element.addressLine1}} <br>
+            {{element.addressLine1}} &nbsp;
             {{element.addressLine1}} <br>
             {{element.city}}
         </td>
     </ng-container>
 
-    <ng-container matColumnDef="RestaurantUser">
-        <th class="table-header" mat-header-cell *matHeaderCellDef> Contact Number </th>
-        <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
-    </ng-container>
 
     <ng-container matColumnDef="ButtonOne">
         <th class="table-header" mat-header-cell *matHeaderCellDef> </th>
