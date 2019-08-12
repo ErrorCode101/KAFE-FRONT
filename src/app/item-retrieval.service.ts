@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import Item from './models/Item';
 import { CookieService } from 'ngx-cookie-service';
+import { CommonService } from './services/common.service';
 
 
 interface Config {
@@ -15,25 +16,22 @@ interface Config {
 })
 export class ItemRetrievalService {
 
-  constructor(private http: HttpClient,private cookieService:CookieService) { }
+  constructor(private http: HttpClient,private cookieService:CookieService, private commonService:CommonService) { }
 
   public getItems(){
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Basic '+this.cookieService.get('restaurant-auth'),
-        'Content-Type': 'application/x-form-urlencoded'
+        'Content-Type': 'application/json'
       })
     };
-    return this.http.get('https://qriomatrix-kafe.herokuapp.com/menuitem/all',httpOptions);
+    return this.http.get(this.commonService.GetCoreServiceUrl()+'menuitem/all?access_token='+this.cookieService.get('restaurant-auth'),
+    httpOptions);
   }
 
   public saveItem(item:Item){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': 'Basic '+this.cookieService.get('restaurant-auth'),
-        'Content-Type': 'application/x-form-urlencoded'
-      })
-    };
-    return this.http.post("https://qriomatrix-kafe.herokuapp.com/menuitem/save",item,httpOptions);
+    return this.http.post(this.commonService.GetCoreServiceUrl() +'menuitem/save?access_token=' +
+    this.cookieService.get('restaurant-auth')
+    , item);
   }
 }
