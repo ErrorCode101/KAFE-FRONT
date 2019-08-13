@@ -1,4 +1,5 @@
 export default interface Item{
+    id:string;
     itemId:string;
     name:string;
     description:string;

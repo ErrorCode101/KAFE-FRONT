@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import Item from './models/Item';
 import { CookieService } from 'ngx-cookie-service';
 import { CommonService } from './services/common.service';
+import { MatSnackBar } from '@angular/material';
 
 
 interface Config {
@@ -16,7 +17,8 @@ interface Config {
 })
 export class ItemRetrievalService {
 
-  constructor(private http: HttpClient,private cookieService:CookieService, private commonService:CommonService) { }
+  constructor(private http: HttpClient,private cookieService:CookieService, private commonService:CommonService,
+    private snackBar: MatSnackBar) { }
 
   public getItems(){
     const httpOptions = {
@@ -34,4 +36,18 @@ export class ItemRetrievalService {
     this.cookieService.get('restaurant-auth')
     , item);
   }
+
+  public deleteItem(item:Item){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Basic '+this.cookieService.get('restaurant-auth'),
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.post(this.commonService.GetCoreServiceUrl() +'menuitem/delete?id='+item.id +'&access_token=' +
+    this.cookieService.get('restaurant-auth')
+    , item, httpOptions);
+  }
+
+
 }

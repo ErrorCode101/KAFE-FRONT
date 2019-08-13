@@ -13,25 +13,24 @@ export interface DialogData {
   templateUrl: './table-list.component.html',
   styleUrls: ['./table-list.component.css']
 })
-export class TableListComponent {
+export class TableListComponent implements OnInit{
+  
   displayedColumns: string[] = ['itemId', 'name', 'description', 'readyInMins', 'price', 'actions'];
 
-  public items:Item[] = [{
-    itemId:"1",
-    name:"Rice",
-    description:"good",
-    price:150.00,
-    readyInMinutes:10,
-    likes: 20,
-    imageUrl: "",
-    savings: "",
-    reviews: [],
-    ingredients: []
-  }];
+  public items:Item[] = [];
 
   constructor(public dialog: MatDialog, private itemRetrivalService: ItemRetrievalService) { 
+   
+  }
+
+  ngOnInit(): void {
+    this.getItems();
+  }
+
+  private getItems(): void{
     this.itemRetrivalService.getItems().subscribe((result:any) => {
-      this.items = result.data;
+      this.items = result;
+      
     })
   }
 
@@ -62,7 +61,11 @@ export class TableListComponent {
     });
   }
 
-  deleteRowData(itemId: any):void{
+  deleteRowData(item: any):void{
+    this.itemRetrivalService.deleteItem(item).subscribe((result:any) => {
+      this.getItems();
+      
+    })
     debugger
   }
 }
@@ -74,6 +77,7 @@ export class TableListComponent {
 export class DialogOverviewExampleDialog {
 
     private item:Item = {
+      id: null,
       itemId:"",
       name:"",
       description:"",
@@ -98,8 +102,9 @@ export class DialogOverviewExampleDialog {
     }
 
     onSubmit(){
-      this.itemRetrievalService.saveItem(this.item).subscribe((data:any)=>{
+      this.itemRetrievalService.saveItem(this.item).subscribe((data:any)=>{     
         debugger
+        this.dialogRef.close({event:'Add' });
       }, error => {
         debugger
       })
@@ -129,7 +134,7 @@ export class DialogOverviewExampleDialog {
     this.item.itemId = data;
   }
 
-  descriptonChanged(data:any):void {
+  descriptionChanged(data:any):void {
     this.item.description = data;
   }
 
