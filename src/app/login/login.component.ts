@@ -3,6 +3,7 @@ import { FormsModule, FormGroup, FormControl, Validators, ReactiveFormsModule, F
 import {AuthenticationService} from '../authentication.service';
 import {CookieService} from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     loginForm;
 
   constructor(private cookieService: CookieService, private authenticationService: AuthenticationService, private formBuilder: FormBuilder,
-    private _router:Router) {
+    private _router:Router, private snackBar: MatSnackBar) {
 
       this.loginForm = this.formBuilder.group({
         userName:"",
@@ -38,7 +39,12 @@ export class LoginComponent implements OnInit {
         this._router.navigateByUrl("home");
       },
       (error:any) => {
-        
+        if(error.error !=undefined && error.error != null){
+          this.snackBar.open(error.error.error_description + "...", "OK",
+          {duration:4000});
+        }else{
+
+        }
       }
     )
   }

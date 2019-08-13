@@ -30,7 +30,7 @@ export class ItemRetrievalService {
   }
 
   public saveItem(item:Item){
-    return this.http.post(this.commonService.GetCoreServiceUrl() +'menuitem/save?access_token=' +
+    return this.http.post(this.commonService.GetCoreServiceUrl() +'menuitem/create?access_token=' +
     this.cookieService.get('restaurant-auth')
     , item);
   }

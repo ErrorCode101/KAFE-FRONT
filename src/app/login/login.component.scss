@@ -52,7 +52,7 @@
   
   .example-small-box, .example-large-box {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     margin: 2px;
     padding: 2px;
